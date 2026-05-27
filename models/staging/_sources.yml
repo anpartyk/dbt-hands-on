@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: jaffle_shop
+    description: "Raw operational data from the jaffle shop business systems."
+    schema: main
+    tables:
+      - name: raw_customers
