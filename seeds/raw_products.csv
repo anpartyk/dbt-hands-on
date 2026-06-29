@@ -1,0 +1,301 @@
+id,sku,name,category_id,supplier_id,base_price_cents,is_active,launched_at
+1,P0001,Tokyo Jaffle,6,5,1235,True,2023-07-28
+2,P0002,Truffle Mushroom Jaffle,7,6,1100,True,2020-11-07
+3,P0003,Mushroom Vegan Melt,8,17,780,True,2021-06-21
+4,P0004,Spicy Berlin Donburi,9,18,1415,True,2024-04-20
+5,P0005,Crunchy Bombay Salad,10,15,955,True,2022-01-27
+6,P0006,Ancient Grain BLT Mix,11,1,1535,True,2023-08-14
+7,P0007,Tokyo Latte,12,21,455,True,2022-02-27
+8,P0008,Bristol Tea,13,6,475,True,2021-06-06
+9,P0009,Brooklyn Smoothie,14,25,700,True,2020-09-23
+10,P0010,Loaded Mediterranean Wedges,15,15,380,False,2024-04-23
+11,P0011,Pickled Tex-Mex,16,17,325,True,2022-10-02
+12,P0012,Tomato Trail Mix,17,17,425,True,2022-11-25
+13,P0013,Mini Tex-Mex Cake,18,22,520,True,2023-08-27
+14,P0014,Cheddar Tart,19,19,670,True,2021-02-03
+15,P0015,Greek Macaron,20,4,765,True,2022-01-11
+16,P0016,Classic Halloumi Toastie,6,4,1395,True,2023-01-21
+17,P0017,Truffle Bristol Jaffle,7,17,1070,True,2024-01-10
+18,P0018,Hawaiian Vegan Jaffle,8,17,870,True,2020-10-27
+19,P0019,Tokyo Hawaiian Bowl,9,1,1005,True,2021-12-21
+20,P0020,Mushroom Caesar Bowl,10,20,1490,True,2022-09-13
+21,P0021,Ancient Grain Pesto Mix,11,18,1405,True,2022-01-09
+22,P0022,Chicago Espresso,12,24,365,True,2021-02-23
+23,P0023,Spinach Chai,13,15,545,True,2021-04-11
+24,P0024,Spinach Smoothie,14,7,580,True,2022-10-10
+25,P0025,Loaded Caprese Wedges,15,3,515,True,2022-08-09
+26,P0026,Cold Greek Salad,16,21,325,True,2020-02-11
+27,P0027,BLT Crisps,17,6,555,True,2021-09-22
+28,P0028,Bristol Cheesecake,18,25,640,True,2022-12-04
+29,P0029,Bristol Danish,19,2,745,False,2020-09-04
+30,P0030,Chicago Cookie,20,11,465,True,2023-08-27
+31,P0031,Cheesy Tomato Melt,6,14,895,True,2023-12-04
+32,P0032,BLT Reserve Toastie,7,7,1205,True,2022-02-23
+33,P0033,Detroit Vegan Jaffle,8,6,1270,True,2023-03-24
+34,P0034,Bristol Rice Bowl,9,23,1410,True,2024-06-12
+35,P0035,Greek Garden Salad,10,6,1305,True,2023-10-17
+36,P0036,Ancient Grain Detroit Mix,11,11,1100,True,2024-03-09
+37,P0037,Italian Latte,12,22,385,True,2021-02-26
+38,P0038,Iced Vietnamese Tea,13,5,690,True,2022-06-29
+39,P0039,Sparkling Caprese Water,14,20,350,True,2021-09-27
+40,P0040,Loaded Chicago Wedges,15,9,435,True,2024-06-24
+41,P0041,Pickled Mushroom,16,23,590,True,2021-07-07
+42,P0042,Caprese Pretzels,17,19,1000,True,2021-06-22
+43,P0043,Bristol Layer Cake,18,18,490,False,2023-03-22
+44,P0044,Brooklyn Croissant,19,25,600,True,2023-09-23
+45,P0045,Chunky Spinach Biscuit,20,15,785,True,2023-09-25
+46,P0046,Classic Chicago Toastie,6,17,1040,False,2022-06-29
+47,P0047,Tomato Reserve Toastie,7,22,810,True,2020-11-15
+48,P0048,Italian Vegan Jaffle,8,21,820,True,2021-01-27
+49,P0049,Spinach Hawaiian Bowl,9,18,1345,True,2020-02-08
+50,P0050,Tex-Mex Caesar Bowl,10,19,1005,True,2024-02-28
+51,P0051,Ancient Grain Italian Mix,11,14,980,True,2022-04-04
+52,P0052,Tokyo Espresso,12,22,440,True,2020-07-07
+53,P0053,Iced Tokyo Tea,13,2,615,True,2021-07-11
+54,P0054,BLT Lemonade,14,1,345,True,2022-01-31
+55,P0055,Loaded Caprese Wedges,15,13,455,True,2022-05-08
+56,P0056,Cold Chicago Salad,16,12,535,True,2024-01-25
+57,P0057,Avocado Pretzels,17,21,545,True,2021-09-08
+58,P0058,Spinach Layer Cake,18,11,350,True,2021-10-26
+59,P0059,Detroit Croissant,19,25,760,True,2021-05-09
+60,P0060,Brie Cookie,20,20,750,True,2022-05-22
+61,P0061,Cheesy Berlin Melt,6,6,820,True,2022-09-20
+62,P0062,Truffle Chicago Jaffle,7,14,800,True,2021-11-15
+63,P0063,Plant-based Brie Toastie,8,8,710,True,2024-05-08
+64,P0064,Pesto Rice Bowl,9,18,1510,False,2022-10-02
+65,P0065,Crunchy Brooklyn Salad,10,3,1550,True,2022-05-05
+66,P0066,Avocado Quinoa Bowl,11,7,965,True,2023-08-22
+67,P0067,Greek Latte,12,12,695,True,2020-08-16
+68,P0068,Iced Tomato Tea,13,13,310,True,2020-04-21
+69,P0069,Sparkling Brie Water,14,15,280,True,2020-04-30
+70,P0070,Hot Halloumi Fries,15,4,535,True,2023-03-21
+71,P0071,Pickled Chicago,16,16,525,True,2023-10-13
+72,P0072,Cheddar Crisps,17,20,595,True,2022-04-24
+73,P0073,Bombay Layer Cake,18,19,670,True,2020-04-09
+74,P0074,Vietnamese Danish,19,9,665,True,2020-05-21
+75,P0075,Avocado Cookie,20,20,790,True,2021-03-24
+76,P0076,Cheesy BLT Melt,6,22,1200,True,2021-09-28
+77,P0077,Brooklyn Reserve Toastie,7,15,1275,True,2022-10-30
+78,P0078,Plant-based Avocado Toastie,8,25,920,True,2023-06-27
+79,P0079,Greek Hawaiian Bowl,9,24,1300,True,2022-06-01
+80,P0080,Smoked Salmon Caesar Bowl,10,9,1415,True,2023-11-26
+81,P0081,Brie Grain Bowl,11,25,935,True,2022-06-20
+82,P0082,Spinach Espresso,12,9,500,True,2023-04-24
+83,P0083,Italian Tea,13,4,665,True,2024-04-07
+84,P0084,Sparkling Cheddar Water,14,15,690,True,2023-09-09
+85,P0085,Hot Spinach Fries,15,11,495,True,2024-02-07
+86,P0086,Chilled Korean Slaw,16,9,310,True,2022-12-31
+87,P0087,Smoked Salmon Trail Mix,17,25,505,True,2023-06-01
+88,P0088,Chicago Layer Cake,18,21,470,True,2022-05-10
+89,P0089,Caprese Croissant,19,19,490,True,2020-12-09
+90,P0090,Bristol Cookie,20,22,405,True,2023-03-13
+91,P0091,Cheesy Mediterranean Melt,6,8,1180,True,2020-06-24
+92,P0092,Truffle Brie Jaffle,7,21,1325,True,2020-08-05
+93,P0093,Korean Vegan Melt,8,3,945,True,2023-04-03
+94,P0094,BLT Rice Bowl,9,9,1350,True,2021-09-14
+95,P0095,Crunchy Mediterranean Salad,10,10,1190,True,2020-05-02
+96,P0096,Ancient Grain Berlin Mix,11,22,1460,True,2020-07-20
+97,P0097,Detroit Latte,12,20,380,True,2022-10-09
+98,P0098,Vietnamese Chai,13,3,695,True,2020-05-28
+99,P0099,Detroit Smoothie,14,6,470,True,2022-12-31
+100,P0100,Hot Detroit Fries,15,1,555,True,2022-05-22
+101,P0101,Chilled Bristol Slaw,16,21,515,True,2022-12-06
+102,P0102,Spinach Trail Mix,17,10,340,True,2023-08-01
+103,P0103,Mediterranean Cheesecake,18,13,400,True,2024-04-03
+104,P0104,Bombay Tart,19,5,775,True,2020-11-30
+105,P0105,Chunky BLT Biscuit,20,16,375,True,2020-03-02
+106,P0106,Cheesy Caprese Melt,6,17,1050,True,2021-07-27
+107,P0107,Truffle Bristol Jaffle,7,9,1340,True,2022-09-19
+108,P0108,Brooklyn Vegan Melt,8,19,1030,True,2020-12-27
+109,P0109,Pesto Rice Bowl,9,2,1135,True,2020-06-20
+110,P0110,Italian Garden Salad,10,24,1430,True,2020-07-08
+111,P0111,Ancient Grain Bombay Mix,11,19,1470,True,2020-12-30
+112,P0112,Berlin Latte,12,22,410,True,2023-07-21
+113,P0113,Iced Bombay Tea,13,9,580,True,2023-06-03
+114,P0114,Halloumi Smoothie,14,12,690,True,2021-03-09
+115,P0115,Loaded Smoked Salmon Wedges,15,3,595,False,2020-01-21
+116,P0116,Cold Avocado Salad,16,8,410,True,2023-06-29
+117,P0117,Avocado Crisps,17,15,550,True,2022-08-27
+118,P0118,Tomato Cheesecake,18,11,645,True,2023-10-22
+119,P0119,Smoked Salmon Danish,19,17,440,True,2023-09-11
+120,P0120,Chunky Tokyo Biscuit,20,24,540,True,2023-11-22
+121,P0121,Classic Halloumi Toastie,6,18,885,True,2022-12-06
+122,P0122,Truffle Chicago Jaffle,7,4,825,True,2021-11-25
+123,P0123,Plant-based Tex-Mex Toastie,8,20,985,True,2023-10-08
+124,P0124,Italian Rice Bowl,9,7,1535,True,2022-01-12
+125,P0125,Italian Garden Salad,10,6,1110,True,2020-01-29
+126,P0126,Korean Grain Bowl,11,20,1405,True,2022-08-05
+127,P0127,Caprese Latte,12,11,325,True,2024-01-09
+128,P0128,Brie Tea,13,9,370,True,2020-10-23
+129,P0129,Mushroom Smoothie,14,7,540,True,2024-02-28
+130,P0130,Crispy Tex-Mex Bites,15,14,465,True,2020-12-05
+131,P0131,Chilled Vietnamese Slaw,16,16,400,True,2022-02-04
+132,P0132,BLT Crisps,17,14,430,True,2021-10-29
+133,P0133,Mini Berlin Cake,18,24,615,False,2021-09-16
+134,P0134,Korean Croissant,19,20,500,False,2023-10-22
+135,P0135,Vietnamese Cookie,20,17,545,True,2024-02-13
+136,P0136,Cheesy Italian Melt,6,15,885,True,2024-02-09
+137,P0137,Tokyo Reserve Toastie,7,1,1140,True,2020-11-18
+138,P0138,Chicago Vegan Melt,8,12,1220,True,2024-01-22
+139,P0139,Spicy Cheddar Donburi,9,1,1435,True,2021-12-22
+140,P0140,Vietnamese Garden Salad,10,22,1040,True,2024-03-27
+141,P0141,Cheddar Quinoa Bowl,11,22,985,True,2022-07-31
+142,P0142,Italian Latte,12,3,295,True,2020-10-04
+143,P0143,Iced Chicago Tea,13,24,260,True,2021-03-16
+144,P0144,Pesto Lemonade,14,10,475,True,2021-11-22
+145,P0145,Loaded Berlin Wedges,15,23,580,True,2023-10-15
+146,P0146,Chilled Mediterranean Slaw,16,24,550,True,2022-06-19
+147,P0147,Hawaiian Pretzels,17,18,540,False,2020-03-04
+148,P0148,Mini Brooklyn Cake,18,8,610,True,2023-04-09
+149,P0149,Vietnamese Tart,19,3,760,True,2020-11-03
+150,P0150,Chicago Cookie,20,22,795,True,2024-06-28
+151,P0151,Classic Caprese Toastie,6,23,1070,True,2024-04-04
+152,P0152,Chicago Reserve Toastie,7,25,1100,True,2021-08-13
+153,P0153,Caprese Vegan Jaffle,8,6,1340,True,2022-02-24
+154,P0154,Avocado Rice Bowl,9,5,910,True,2023-09-07
+155,P0155,Cheddar Caesar Bowl,10,25,1315,True,2023-10-17
+156,P0156,Halloumi Grain Bowl,11,19,1480,True,2022-03-02
+157,P0157,Mushroom Latte,12,17,280,True,2023-02-18
+158,P0158,Iced Bristol Tea,13,2,625,True,2023-04-28
+159,P0159,Chicago Lemonade,14,20,555,True,2020-06-01
+160,P0160,Loaded Tomato Wedges,15,22,570,True,2024-01-15
+161,P0161,Pickled Avocado,16,5,335,True,2023-04-07
+162,P0162,Korean Pretzels,17,13,305,True,2021-01-14
+163,P0163,Tex-Mex Cheesecake,18,12,710,True,2024-06-23
+164,P0164,Mushroom Croissant,19,8,565,True,2023-07-22
+165,P0165,Chunky BLT Biscuit,20,13,655,True,2023-08-25
+166,P0166,Classic Berlin Toastie,6,6,1025,True,2023-11-07
+167,P0167,Hawaiian Reserve Toastie,7,20,1005,True,2021-03-14
+168,P0168,Caprese Vegan Jaffle,8,18,1240,True,2023-04-07
+169,P0169,Bristol Rice Bowl,9,22,1460,True,2024-04-04
+170,P0170,Crunchy Berlin Salad,10,13,930,True,2020-07-06
+171,P0171,Ancient Grain BLT Mix,11,4,1190,True,2020-12-23
+172,P0172,Cold Brew Cheddar,12,13,265,True,2022-04-27
+173,P0173,Korean Tea,13,17,580,True,2023-02-17
+174,P0174,Bristol Smoothie,14,10,385,True,2021-07-11
+175,P0175,Loaded Cheddar Wedges,15,5,355,True,2020-12-21
+176,P0176,Pickled Mediterranean,16,23,555,True,2022-05-03
+177,P0177,Cheddar Pretzels,17,8,335,True,2020-06-04
+178,P0178,Bristol Cheesecake,18,2,760,True,2022-11-15
+179,P0179,Pesto Tart,19,8,375,True,2022-08-18
+180,P0180,Chunky Hawaiian Biscuit,20,11,745,True,2024-01-06
+181,P0181,Halloumi Jaffle,6,4,1270,True,2024-04-03
+182,P0182,Truffle Tomato Jaffle,7,17,1185,True,2020-12-06
+183,P0183,Detroit Vegan Jaffle,8,23,935,True,2020-11-22
+184,P0184,Spicy Greek Donburi,9,20,1350,True,2020-01-16
+185,P0185,Cheddar Garden Salad,10,5,1115,True,2020-05-27
+186,P0186,Tex-Mex Quinoa Bowl,11,4,1360,True,2020-02-04
+187,P0187,Pesto Latte,12,23,375,True,2022-10-08
+188,P0188,Caprese Chai,13,18,530,True,2020-06-11
+189,P0189,Sparkling Vietnamese Water,14,20,665,True,2022-04-28
+190,P0190,Hot Cheddar Fries,15,9,360,True,2020-09-23
+191,P0191,Chilled Bombay Slaw,16,13,345,True,2023-03-06
+192,P0192,Mushroom Crisps,17,19,475,True,2020-03-28
+193,P0193,BLT Layer Cake,18,15,660,True,2021-01-05
+194,P0194,Berlin Danish,19,3,465,True,2023-07-29
+195,P0195,Smoked Salmon Cookie,20,7,630,True,2020-06-02
+196,P0196,Cheesy Cheddar Melt,6,15,730,True,2023-03-04
+197,P0197,Smoked Chicago Premium,7,3,1310,True,2020-06-02
+198,P0198,Plant-based Berlin Toastie,8,13,1330,True,2023-12-13
+199,P0199,Spicy Brie Donburi,9,2,1375,True,2022-10-02
+200,P0200,Smoked Salmon Garden Salad,10,21,1190,True,2023-11-26
+201,P0201,Brooklyn Quinoa Bowl,11,18,905,True,2021-02-23
+202,P0202,Cold Brew Brooklyn,12,12,365,True,2021-02-27
+203,P0203,Italian Tea,13,4,455,True,2022-05-12
+204,P0204,Sparkling Avocado Water,14,3,270,True,2023-03-26
+205,P0205,Loaded Halloumi Wedges,15,4,550,True,2022-01-13
+206,P0206,Chilled Bristol Slaw,16,24,475,True,2021-03-29
+207,P0207,Bristol Crisps,17,1,500,True,2020-04-22
+208,P0208,Hawaiian Layer Cake,18,10,350,True,2020-07-10
+209,P0209,Chicago Croissant,19,11,640,True,2022-05-09
+210,P0210,Chunky Mediterranean Biscuit,20,8,470,True,2021-03-31
+211,P0211,Greek Jaffle,6,22,1230,True,2022-01-11
+212,P0212,Tex-Mex Reserve Toastie,7,7,925,True,2023-04-19
+213,P0213,Caprese Vegan Melt,8,1,710,False,2023-02-05
+214,P0214,Pesto Rice Bowl,9,13,1045,True,2022-09-26
+215,P0215,Italian Garden Salad,10,3,1215,True,2021-05-08
+216,P0216,Chicago Grain Bowl,11,9,1300,True,2024-05-19
+217,P0217,BLT Latte,12,19,380,True,2022-01-28
+218,P0218,Italian Chai,13,23,595,True,2021-08-17
+219,P0219,Greek Smoothie,14,10,580,True,2020-07-19
+220,P0220,Hot Korean Fries,15,25,310,True,2020-12-12
+221,P0221,Chilled BLT Slaw,16,13,480,True,2022-12-05
+222,P0222,Vietnamese Pretzels,17,1,505,True,2023-05-01
+223,P0223,Mini Mushroom Cake,18,25,530,False,2021-12-04
+224,P0224,Mushroom Tart,19,19,430,True,2022-08-03
+225,P0225,Tex-Mex Macaron,20,12,760,False,2022-04-01
+226,P0226,Classic Mushroom Toastie,6,21,865,True,2023-10-11
+227,P0227,Smoked Chicago Premium,7,21,990,True,2024-02-10
+228,P0228,Detroit Vegan Melt,8,14,1055,True,2024-03-02
+229,P0229,Chicago Hawaiian Bowl,9,25,1555,True,2020-12-03
+230,P0230,BLT Garden Salad,10,1,1165,True,2023-02-12
+231,P0231,Tex-Mex Grain Bowl,11,1,1130,True,2023-10-11
+232,P0232,Caprese Latte,12,10,500,True,2021-08-27
+233,P0233,Iced Spinach Tea,13,10,650,True,2023-12-26
+234,P0234,Sparkling Tokyo Water,14,4,600,True,2022-06-15
+235,P0235,Loaded Pesto Wedges,15,7,330,True,2022-01-14
+236,P0236,Cold Hawaiian Salad,16,12,305,True,2020-04-14
+237,P0237,Tomato Crisps,17,21,310,True,2024-01-12
+238,P0238,Mini Hawaiian Cake,18,10,590,True,2021-10-07
+239,P0239,Mediterranean Danish,19,5,765,True,2020-10-11
+240,P0240,Chunky Hawaiian Biscuit,20,7,560,True,2020-03-18
+241,P0241,Detroit Jaffle,6,19,1235,True,2021-06-18
+242,P0242,Truffle Caprese Jaffle,7,21,1235,True,2023-12-24
+243,P0243,Mediterranean Vegan Melt,8,10,1150,False,2021-02-09
+244,P0244,Mediterranean Rice Bowl,9,15,1200,True,2020-05-01
+245,P0245,Mediterranean Garden Salad,10,6,1075,True,2021-11-18
+246,P0246,Caprese Grain Bowl,11,22,1575,True,2021-06-05
+247,P0247,Tokyo Latte,12,15,465,True,2021-01-17
+248,P0248,Vietnamese Tea,13,19,425,True,2020-05-21
+249,P0249,Sparkling Tex-Mex Water,14,9,595,False,2022-03-06
+250,P0250,Loaded Brie Wedges,15,20,320,True,2023-01-30
+251,P0251,Pickled Halloumi,16,6,585,True,2021-01-19
+252,P0252,Detroit Crisps,17,7,505,True,2020-07-30
+253,P0253,BLT Cheesecake,18,6,760,True,2023-08-27
+254,P0254,Bristol Danish,19,14,405,True,2020-05-04
+255,P0255,Chunky Greek Biscuit,20,13,490,True,2022-09-09
+256,P0256,Classic Greek Toastie,6,15,1270,True,2022-02-22
+257,P0257,Smoked Salmon Reserve Toastie,7,2,1270,True,2021-12-23
+258,P0258,Tomato Vegan Melt,8,22,780,True,2021-09-18
+259,P0259,Brie Hawaiian Bowl,9,19,1480,True,2022-08-17
+260,P0260,Crunchy BLT Salad,10,19,1075,True,2020-09-02
+261,P0261,BLT Grain Bowl,11,17,1250,True,2024-04-15
+262,P0262,Mushroom Espresso,12,8,520,True,2020-11-09
+263,P0263,Caprese Chai,13,11,320,True,2021-01-15
+264,P0264,Bristol Smoothie,14,18,640,True,2023-03-01
+265,P0265,Crispy Mushroom Bites,15,25,360,True,2023-02-26
+266,P0266,Chilled Korean Slaw,16,25,480,True,2021-02-24
+267,P0267,Detroit Crisps,17,11,400,False,2022-06-05
+268,P0268,Tex-Mex Layer Cake,18,1,725,True,2021-04-05
+269,P0269,Tomato Croissant,19,18,620,True,2020-08-02
+270,P0270,Chunky Tokyo Biscuit,20,21,595,True,2022-04-02
+271,P0271,Hawaiian Jaffle,6,23,765,True,2023-08-17
+272,P0272,Smoked Mushroom Premium,7,1,1035,False,2022-09-29
+273,P0273,Mushroom Vegan Melt,8,15,735,True,2022-09-20
+274,P0274,Spicy Pesto Donburi,9,12,1185,False,2022-06-12
+275,P0275,Hawaiian Garden Salad,10,10,1155,True,2024-06-23
+276,P0276,Ancient Grain Mediterranean Mix,11,7,1465,True,2021-05-18
+277,P0277,Cold Brew Mushroom,12,21,410,True,2022-02-02
+278,P0278,Iced Mediterranean Tea,13,14,560,True,2022-08-03
+279,P0279,Detroit Lemonade,14,19,445,True,2022-04-17
+280,P0280,Hot Brie Fries,15,23,545,True,2021-06-25
+281,P0281,Cold Brie Salad,16,25,320,True,2023-07-23
+282,P0282,Detroit Crisps,17,19,320,True,2022-04-10
+283,P0283,Mini Berlin Cake,18,22,760,True,2021-06-27
+284,P0284,Spinach Tart,19,8,505,True,2022-07-07
+285,P0285,Greek Macaron,20,21,790,True,2023-03-28
+286,P0286,Cheesy Berlin Melt,6,15,1095,True,2023-01-25
+287,P0287,Smoked Spinach Premium,7,21,1140,False,2021-12-26
+288,P0288,Tokyo Vegan Melt,8,3,1295,True,2024-06-10
+289,P0289,BLT Rice Bowl,9,22,1175,True,2021-05-01
+290,P0290,Crunchy Mediterranean Salad,10,8,1350,True,2023-09-16
+291,P0291,Ancient Grain Cheddar Mix,11,8,1445,False,2021-03-22
+292,P0292,Cold Brew Spinach,12,9,350,True,2021-01-20
+293,P0293,Italian Chai,13,16,615,True,2022-06-14
+294,P0294,Tokyo Smoothie,14,5,460,True,2020-08-10
+295,P0295,Loaded Tokyo Wedges,15,15,495,True,2020-12-15
+296,P0296,Cold BLT Salad,16,7,430,True,2022-09-13
+297,P0297,Berlin Crisps,17,24,475,True,2021-07-28
+298,P0298,Mini Caprese Cake,18,14,795,True,2021-02-01
+299,P0299,Spinach Tart,19,4,750,True,2022-12-29
+300,P0300,Caprese Macaron,20,6,555,True,2022-08-27

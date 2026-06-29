@@ -32,5 +32,11 @@ models:
       +materialized: table
       +tags: ["marts"]
 
+seeds:
+  "dbt_escape_room":
+    +schema: dbt_hands_on
+    iso_country_codes:
+      +schema: dbt_hands_on
+
 vars:
   project_name: "dbt_escape_room"

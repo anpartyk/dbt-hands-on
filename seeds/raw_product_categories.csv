@@ -1,0 +1,21 @@
+id,name,parent_category_id
+1,Sandwich,
+2,Bowl,
+3,Drink,
+4,Side,
+5,Dessert,
+6,Classic Jaffle,1
+7,Premium Jaffle,1
+8,Vegan Jaffle,1
+9,Rice Bowl,2
+10,Salad Bowl,2
+11,Grain Bowl,2
+12,Coffee,3
+13,Tea,3
+14,Cold Drink,3
+15,Hot Side,4
+16,Cold Side,4
+17,Snack,4
+18,Cake,5
+19,Pastry,5
+20,Cookie,5

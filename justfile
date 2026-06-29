@@ -13,8 +13,7 @@ deps:
     uv run dbt deps
 
 setup: install deps
-    cp starter.duckdb dbt_escape_room_dev.duckdb
-    @echo "Project ready!"
+    @echo "Project ready! Make sure FABRIC_SERVER and FABRIC_DATABASE env vars are set."
 
 # -- dbt -----------------------------------
 # Every dbt wrapper forwards extra args through to dbt, so any dbt flag works:
@@ -93,7 +92,11 @@ verify *args:
     set -euo pipefail
     echo "Verifying project setup..."
     echo ""
-    echo "OK: DuckDB requires no environment variables"
+    echo "Checking required environment variables..."
+    : "${FABRIC_SERVER:?Set FABRIC_SERVER to your Fabric SQL endpoint}"
+    : "${FABRIC_DATABASE:?Set FABRIC_DATABASE to your Fabric Warehouse name}"
+    echo "OK: FABRIC_SERVER=$FABRIC_SERVER"
+    echo "OK: FABRIC_DATABASE=$FABRIC_DATABASE"
     echo ""
     echo "Checking dbt connection..."
     uv run dbt debug "$@" 2>&1 | tail -20
@@ -103,28 +106,15 @@ verify *args:
     echo ""
     echo "All checks passed!"
 
-# -- DuckDB --------------------------------
-# Open the DuckDB UI at http://localhost:4213.
-# socat bridges IPv4 (127.0.0.1) to IPv6 (::1) so VS Code's port-forwarding tunnel reaches DuckDB.
-ui db="dbt_escape_room_dev.duckdb":
-    #!/usr/bin/env bash
-    set -euo pipefail
-    socat TCP4-LISTEN:4213,bind=127.0.0.1,reuseaddr,fork TCP6:[::1]:4213 &
-    SOCAT_PID=$!
-    trap "kill $SOCAT_PID 2>/dev/null || true" EXIT
-    duckdb -ui "{{db}}"
+# -- Data Loading --------------------------
+# Load raw tables into Fabric Warehouse from CSV exports.
+# Requires FABRIC_SERVER and FABRIC_DATABASE env vars.
+load-data:
+    uv run --group scripts python scripts/load_starter_data.py
 
-# Restore the dev database to its starter state (raw tables only, no models).
-# Use this to reset between demos or after schema changes.
-reset:
-    rm -f dbt_escape_room_dev.duckdb
-    cp starter.duckdb dbt_escape_room_dev.duckdb
-    @echo "Done! Database reset to starter state."
-
-# Regenerate starter.duckdb from scratch using Faker (maintainers only).
-# After running, re-record puzzle answers in your maintainer playthrough notes.
-generate-db:
-    uv run --group scripts python scripts/generate_starter_db.py
+# Regenerate starter CSV files from scratch using Faker (maintainers only).
+generate-csv:
+    uv run --group scripts python scripts/generate_starter_csv.py
 
 # -- CI ------------------------------------
 ci: deps lint-all build

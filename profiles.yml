@@ -1,18 +1,12 @@
 dbt_escape_room:
-  target: "{{ env_var('DBT_TARGET', 'dev') }}"
+  target: dev
   outputs:
-    # DuckDB stores data in a local file. No credentials needed.
-    # All models are materialized in the 'main' schema by default.
-    # Add `schema: your_schema` under any target below to override.
     dev:
-      type: duckdb
-      path: "dbt_escape_room_dev.duckdb"
+      type: fabric
+      driver: "ODBC Driver 18 for SQL Server"
+      server: "REDACTED_SERVER"
+      database: "REDACTED_DATABASE"
+      port: 1433
+      schema: "{{ env_var('DBT_SCHEMA', 'dbt_' ~ env_var('USERNAME', 'dev')) }}"
+      authentication: CLI
       threads: 4
-    acc:
-      type: duckdb
-      path: "dbt_escape_room_acc.duckdb"
-      threads: 4
-    pro:
-      type: duckdb
-      path: "dbt_escape_room_pro.duckdb"
-      threads: 8

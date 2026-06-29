@@ -1,47 +1,88 @@
 # dbt Escape Room
 
-Hands-on dbt escape room challenges built on DuckDB and the jaffle shop dataset.
+Hands-on dbt escape room challenges built on Fabric Warehouse and the jaffle shop dataset.
 
-Each "room" is a small dbt task plus a SQL puzzle whose answer unlocks the next room. Challenges are launched via the Voyager terminal engine. The starting state is intentionally broken — the first room opens on a `stg_customers.sql` that won't compile.
+Each "room" is a small dbt task plus a SQL puzzle whose answer unlocks the next room. Challenges are launched via the Escape Room CLI engine. The starting state is intentionally broken — the first room opens on a `stg_customers.sql` that won't compile.
 
 ## Requirements
 
 - [uv](https://docs.astral.sh/uv/) — Python package manager
-- [just](https://just.systems/) — task runner
-- [git](https://git-scm.com/)
+- [WSL](https://learn.microsoft.com/en-us/windows/wsl/install) — Windows Subsystem for Linux (for the game engine)
+- [ODBC Driver 18 for SQL Server](https://learn.microsoft.com/en-us/sql/connect/odbc/download-odbc-driver-for-sql-server)
+- Azure CLI (`az login`) — for Fabric authentication
 
 ## Quick Start
 
-```bash
-# 1. Install everything (Python deps, dbt packages, pre-commit hooks)
-just setup
+### Step 1 — Install Python dependencies and dbt packages
 
-# 2. Verify setup (DuckDB needs no environment variables)
-just verify
-
-# 3. Load seed data
-just seed
-
-# 4. Launch Voyager and start the first room (TBD)
+```powershell
+uv sync --all-groups
+uv run dbt deps
 ```
+
+### Step 2 — Set environment variables
+
+Set these in your PowerShell session (or add to your terminal profile):
+
+```powershell
+$env:DBT_PROFILES_DIR = "C:\Git\dbt-hands-on"
+```
+
+### Step 3 — Verify dbt can connect to Fabric
+
+```powershell
+uv run dbt debug
+```
+
+### Step 4 — Load seed data into Fabric Warehouse
+
+```powershell
+uv run dbt seed
+```
+
+### Step 5 — Install the Escape Room game engine (one-time setup)
+
+Open a **WSL** terminal:
+
+```bash
+# Install the escape room CLI binary
+curl -sSL https://raw.githubusercontent.com/datashift-eu/escaperoom/main/install.sh | bash
+```
+
+### Step 6 — Launch the game
+
+In the same WSL terminal, navigate to the project and start the game:
+
+```bash
+cd /mnt/c/Git/dbt-hands-on
+escaperoom
+```
+
+If `escaperoom` expects a challenges file path:
+
+```bash
+escaperoom --challenges /mnt/c/Git/dbt-hands-on/docs/challenges.md
+```
+
+> **Tip:** Run `escaperoom --help` to see available flags.
+
+### Workflow
+
+Use **two terminals side by side**:
+
+| Terminal 1 (WSL) | Terminal 2 (PowerShell) |
+|---|---|
+| Game engine — read challenges, type answers | dbt commands — `dbt build`, `dbt run`, query results |
 
 ## Common Commands
 
-```bash
-just ui                           # launch Duckdb's UI
-just run                          # run all models
-just build                        # run + test all models in DAG order
-just test                         # run all tests
-just seed                         # load all seed CSVs
-just snapshot                     # run snapshots
-just full-refresh <model>         # full refresh a single model
-just dbt <anything>               # generic passthrough (e.g. just dbt ls)
-just source-freshness             # check source freshness
-just lint                         # lint SQL
-just fix                          # auto-fix SQL
-just docs                         # generate + serve docs
-just reset                        # wipe dev DB and restore from starter
-just --list                       # see every recipe
+```powershell
+uv run dbt run                    # run all models
+uv run dbt build                  # run + test all models in DAG order
+uv run dbt test                   # run all tests
+uv run dbt seed                   # load all seed CSVs
+uv run dbt compile                # compile models to SQL
+uv run dbt ls --select tag:marts  # list resources
 ```
 
 ## Project Structure
@@ -50,25 +91,24 @@ just --list                       # see every recipe
 dbt_escape_room/
 ├── models/
 │   ├── staging/            # Source cleaning, renaming, casting (views)
-│   ├── intermediate/       # Business logic (ephemeral)
+│   ├── intermediate/       # Business logic (views)
 │   └── marts/              # Final output tables
 ├── snapshots/              # SCD Type 2 snapshots
 ├── macros/                 # Reusable Jinja macros
 │   └── generate_schema_name.sql
 ├── tests/                  # Custom generic tests
-├── seeds/                  # Static reference data (jaffle shop CSVs)
+├── seeds/                  # Raw data + reference CSVs (loaded via dbt seed)
 ├── analyses/               # Ad-hoc SQL analyses
+├── docs/                   # Challenge descriptions
+│   └── challenges.md
 ├── dbt_project.yml         # dbt project config
 ├── packages.yml            # dbt package dependencies
-├── profiles.yml            # Warehouse connection config
+├── profiles.yml            # Fabric Warehouse connection config
 ├── .sqlfluff               # SQL linting rules
-├── .pre-commit-config.yaml # Git pre-commit hooks
-├── .gitignore
-├── .env.example            # Environment variable reference
-├── justfile                # Task runner commands
+├── .env                    # Environment variables (gitignored)
 └── pyproject.toml          # Python dependencies (uv)
 ```
 
 ## Warehouse
 
-This project uses **DuckDB** — a local file-based database. No environment variables or cloud credentials needed. Each target (`dev`, `acc`, `pro`) writes to its own `.duckdb` file in the project root.
+This project uses **Microsoft Fabric Warehouse**. Connection details are in `profiles.yml`. Each developer's models are written to their own schema (`dbt_<username>`) to avoid conflicts. Raw source data lives in the shared `dbt_hands_on` schema.

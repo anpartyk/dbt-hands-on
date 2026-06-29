@@ -1,7 +1,7 @@
 [project]
 name = "dbt_escape_room"
 version = "0.1.0"
-description = "Hands-on dbt escape room challenges built on DuckDB and the jaffle shop dataset."
+description = "Hands-on dbt escape room challenges built on Fabric Warehouse and the jaffle shop dataset."
 authors = [
     { name = "Datashift", email = "hello@datashift.eu" }
 ]
@@ -9,13 +9,14 @@ requires-python = ">=3.11"
 
 dependencies = [
     "dbt-core~=1.11.0",
-    "dbt-duckdb>=1.8.0",
+    "dbt-fabric>=1.8.0",
 ]
 
 [dependency-groups]
 scripts = [
     "faker>=37.0.0",
-    "duckdb>=1.2.0",
+    "pyodbc>=5.1.0",
+    "python-dotenv>=1.0.0",
 ]
 dev = [
     "sqlfluff>=3.0.0",
