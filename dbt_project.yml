@@ -6,7 +6,6 @@ profile: "dbt_escape_room"
 flags:
   require_unique_project_resource_names: true
   validate_macro_args: true
-  require_ref_searches_node_package_before_root: true
 
 model-paths: ["models"]
 analysis-paths: ["analyses"]
@@ -35,8 +34,6 @@ models:
 seeds:
   "dbt_escape_room":
     +schema: seed
-    iso_country_codes:
-      +schema: seed
 
 vars:
   project_name: "dbt_escape_room"
