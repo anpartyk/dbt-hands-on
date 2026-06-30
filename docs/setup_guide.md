@@ -72,19 +72,21 @@ az login
 
 A browser window opens — sign in with your company account.
 
-### Step 5 — Set the profiles directory
+### Step 5 — Set environment variables
 
-Tell dbt where to find its config:
+Tell dbt where to find its config and how to connect to Fabric:
 
 ```powershell
 $env:DBT_PROFILES_DIR = "C:\Git\dbt-hands-on"
+$env:FABRIC_SERVER = "fill in"
+$env:FABRIC_DATABASE = "fill in"
 ```
 
-> **Tip:** To make this permanent, add it to your PowerShell profile:
+> **Tip:** To make these permanent, add them to your PowerShell profile:
 > ```powershell
 > notepad $PROFILE
 > ```
-> Add the line `$env:DBT_PROFILES_DIR = "C:\Git\dbt-hands-on"`, save, restart terminal.
+> Add the lines above (without the `> ` prefix), save, restart terminal.
 
 ### Step 6 — Verify connection
 
@@ -109,13 +111,12 @@ uv run dbt build
 
 | Problem | Fix |
 |---------|-----|
-| `Env var required but not provided: 'FABRIC_SERVER'` | You're using an old profiles.yml. Pull latest or check that server/database are hardcoded in profiles.yml |
+| `Env var required but not provided: 'FABRIC_SERVER'` | Set the environment variables from Step 5: `$env:FABRIC_SERVER` and `$env:FABRIC_DATABASE` |
 | `Login timeout expired` | Run `az login` again — your token expired |
 | `ODBC Driver 18 for SQL Server not found` | Install the ODBC driver from the link above, restart terminal |
 | `uv: command not found` | Close and reopen PowerShell after installing uv |
 | `dbt: command not found` | Use `uv run dbt` instead of plain `dbt` |
 | `Permission denied on schema` | Ask the workshop organizer to grant you access to create schemas in the Fabric Warehouse |
-| Seed takes forever / times out | Normal for large tables — let it finish. If it fails, re-run `uv run dbt seed` (it skips already-loaded tables) |
 
 ---
 

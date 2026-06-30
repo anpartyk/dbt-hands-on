@@ -4,9 +4,9 @@ dbt_escape_room:
     dev:
       type: fabric
       driver: "ODBC Driver 18 for SQL Server"
-      server: "REDACTED_SERVER"
-      database: "REDACTED_DATABASE"
+      server: "{{ env_var('FABRIC_SERVER') }}"
+      database: "{{ env_var('FABRIC_DATABASE') }}"
       port: 1433
-      schema: "{{ env_var('DBT_SCHEMA', 'dbt_' ~ env_var('USERNAME', 'dev')) }}"
+      schema: "{{ env_var('DBT_SCHEMA', 'dbt_hands_on_' ~ env_var('USERNAME', 'dev')) }}"
       authentication: CLI
       threads: 4

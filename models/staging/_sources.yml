@@ -3,6 +3,6 @@ version: 2
 sources:
   - name: jaffle_shop
     description: "Raw operational data from the jaffle shop business systems."
-    schema: dbt_hands_on
+    schema: "{{ target.schema }}_seed"
     tables:
       - name: raw_customers
