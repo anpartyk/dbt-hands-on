@@ -13,11 +13,6 @@ dependencies = [
 ]
 
 [dependency-groups]
-scripts = [
-    "faker>=37.0.0",
-    "pyodbc>=5.1.0",
-    "python-dotenv>=1.0.0",
-]
 dev = [
     "sqlfluff>=3.0.0",
     "sqlfluff-templater-dbt>=3.0.0",
