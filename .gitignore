@@ -3,19 +3,11 @@ target/
 dbt_packages/
 logs/
 .user.yml
-*.duckdb
-!starter.duckdb
 
 # Python
 __pycache__/
 *.py[cod]
 .venv/
-*.egg-info/
-dist/
-build/
-
-# uv
-.uv/
 
 # Environment
 .env
@@ -23,11 +15,10 @@ build/
 !.env.example
 
 # IDE
-# .vscode/
 .idea/
 *.swp
+.claude/
 
 # OS
 .DS_Store
 Thumbs.db
-.vscode/settings.json
