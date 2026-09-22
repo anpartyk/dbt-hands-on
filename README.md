@@ -26,7 +26,7 @@ with your Warehouse SQL endpoint and database name if different):
 
 ```powershell
 $env:DBT_PROFILES_DIR = "C:/Git/dbt-hands-on"
-$env:FABRIC_SERVER = "kf3ifkwnxglehp4wd4umfiuaxq-ngzomypcswdubn4cxio4sz4re4.datawarehouse.fabric.microsoft.com"
+$env:FABRIC_SERVER = "shared on the traninig"
 $env:FABRIC_DATABASE = "WH_Training"
 ```
 
@@ -74,9 +74,10 @@ dbt_escape_room/
 ├── packages.yml            # dbt package dependencies
 ├── profiles.yml            # Fabric Warehouse connection config
 ├── .sqlfluff               # SQL linting rules
+├── .env                    # Environment variables (gitignored)
 └── pyproject.toml          # Python dependencies (uv)
 ```
 
 ## Warehouse
 
-This project uses **Microsoft Fabric Warehouse**. Connection details are in `profiles.yml`. Each developer's models are written to their own schema (`dbt_<username>`) to avoid conflicts, and seeded raw data lands in their own `dbt_seed_<username>` schema.
+This project uses **Microsoft Fabric Warehouse**. Connection details are in `profiles.yml`. Each developer's models are written to their own schema (`dbt_<username>`) to avoid conflicts. Raw source data lives in the shared `raw` schema.
