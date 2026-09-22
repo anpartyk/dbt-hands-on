@@ -46,7 +46,7 @@ Open PowerShell:
 
 ```powershell
 cd C:\Git
-git clone https://github.com/<your-org>/dbt-hands-on.git
+git clone https://github.com/anpartyk/dbt-hands-on.git
 cd dbt-hands-on
 ```
 
