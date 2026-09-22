@@ -1,11 +1,13 @@
 -- Override dbt's default generate_schema_name macro.
--- Seeds go to <default_schema>_seed (e.g. dbt_hands_on_john_seed).
--- All models go to <default_schema> (e.g. dbt_hands_on_john).
+-- Schema is derived from the OS username, not target.schema, so it's
+-- consistent regardless of how DBT_SCHEMA is set in a developer's .env.
+-- Seeds go to dbt_seed_<username> (e.g. dbt_seed_john).
+-- All models go to dbt_<username> (e.g. dbt_john).
 {% macro generate_schema_name(custom_schema_name, node) -%}
-    {%- set default_schema = target.schema -%}
+    {%- set username = env_var('USERNAME', 'dev') -%}
     {%- if node.resource_type == 'seed' -%}
-        {{ default_schema }}_seed
+        dbt_seed_{{ username }}
     {%- else -%}
-        {{ default_schema }}
+        dbt_{{ username }}
     {%- endif -%}
 {%- endmacro %}

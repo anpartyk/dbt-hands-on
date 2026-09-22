@@ -10,11 +10,6 @@ __pycache__/
 *.py[cod]
 .venv/
 
-# Environment
-.env
-.env.*
-!.env.example
-
 # IDE
 .idea/
 *.swp

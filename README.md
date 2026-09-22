@@ -21,11 +21,17 @@ uv run dbt deps
 
 ### Step 2 — Set environment variables
 
-Set these in your PowerShell session (or add to your terminal profile):
+Set these in the current PowerShell session (replace the Fabric placeholders
+with your Warehouse SQL endpoint and database name if different):
 
 ```powershell
-$env:DBT_PROFILES_DIR = "C:\Git\dbt-hands-on"
+$env:DBT_PROFILES_DIR = "C:/Git/dbt-hands-on"
+$env:FABRIC_SERVER = "kf3ifkwnxglehp4wd4umfiuaxq-ngzomypcswdubn4cxio4sz4re4.datawarehouse.fabric.microsoft.com"
+$env:FABRIC_DATABASE = "WH_Training"
 ```
+
+These only last for the current PowerShell session — set them again each time
+you open a new terminal.
 
 ### Step 3 — Verify dbt can connect to Fabric
 
@@ -68,10 +74,9 @@ dbt_escape_room/
 ├── packages.yml            # dbt package dependencies
 ├── profiles.yml            # Fabric Warehouse connection config
 ├── .sqlfluff               # SQL linting rules
-├── .env                    # Environment variables (gitignored)
 └── pyproject.toml          # Python dependencies (uv)
 ```
 
 ## Warehouse
 
-This project uses **Microsoft Fabric Warehouse**. Connection details are in `profiles.yml`. Each developer's models are written to their own schema (`dbt_<username>`) to avoid conflicts. Raw source data lives in the shared `dbt_hands_on` schema.
+This project uses **Microsoft Fabric Warehouse**. Connection details are in `profiles.yml`. Each developer's models are written to their own schema (`dbt_<username>`) to avoid conflicts, and seeded raw data lands in their own `dbt_seed_<username>` schema.

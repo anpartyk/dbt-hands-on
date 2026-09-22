@@ -74,19 +74,17 @@ A browser window opens — sign in with your company account.
 
 ### Step 5 — Set environment variables
 
-Tell dbt where to find its config and how to connect to Fabric:
+Set these in the current PowerShell session (replace the Fabric placeholders
+with your Warehouse SQL endpoint and database name if different):
 
 ```powershell
-$env:DBT_PROFILES_DIR = "C:\Git\dbt-hands-on"
-$env:FABRIC_SERVER = "fill in"
-$env:FABRIC_DATABASE = "fill in"
+$env:DBT_PROFILES_DIR = "path to this repo"
+$env:FABRIC_SERVER = "provided on training"
+$env:FABRIC_DATABASE = "WH_Training"
 ```
 
-> **Tip:** To make these permanent, add them to your PowerShell profile:
-> ```powershell
-> notepad $PROFILE
-> ```
-> Add the lines above (without the `> ` prefix), save, restart terminal.
+These only last for the current PowerShell session — run them again (or add
+them to your PowerShell profile) each time you open a new terminal.
 
 ### Step 6 — Verify connection
 
@@ -111,7 +109,7 @@ uv run dbt build
 
 | Problem | Fix |
 |---------|-----|
-| `Env var required but not provided: 'FABRIC_SERVER'` | Set the environment variables from Step 5: `$env:FABRIC_SERVER` and `$env:FABRIC_DATABASE` |
+| `Env var required but not provided: 'FABRIC_SERVER'` | Set `$env:FABRIC_SERVER`, `$env:FABRIC_DATABASE`, and `$env:DBT_PROFILES_DIR` in the current PowerShell session (see Step 5) |
 | `Login timeout expired` | Run `az login` again — your token expired |
 | `ODBC Driver 18 for SQL Server not found` | Install the ODBC driver from the link above, restart terminal |
 | `uv: command not found` | Close and reopen PowerShell after installing uv |
@@ -161,5 +159,5 @@ C:\Git\dbt-hands-on\
 ```
 
 **Schema layout in Fabric:**
-- `dbt_hands_on` — shared raw data (seeds, everyone reads from here)
-- `dbt_<your_username>` — your personal schema (models write here)
+- `dbt_seed_<your_username>` — your personal schema for seeded raw data
+- `dbt_<your_username>` — your personal schema for models

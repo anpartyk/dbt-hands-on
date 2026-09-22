@@ -1,15 +1,12 @@
 # dbt Escape Room — Challenge Book
 
-Welcome aboard. Seven planets. Seventeen challenges. Build your way out.
+Challenge tasks and instructions are provided in the workshop PowerPoint.
+Use this document as a technical reference for the dbt concepts and commands
+used during the exercises.
 
-Each challenge has two parts:
-
-- **A small dbt task** — write a model, configure YAML, add a macro, fix a bug, run a command.
-- **A business question** whose answer is only computable if your build is correct.
-
-Type your answer at the Voyager prompt. Type `scan` for the next hint (each hint costs 10% of the challenge's points). Type `skip` to come back later. Type `status` to see where you are across all planets.
-
-Difficulty scale: `easy` → `medium` → `hard` → `expert`. Points scale with difficulty. Total mission credits: 775.
+The three-hour session focuses on Challenges 101–302. Challenges 402 and 501
+are introduced briefly as follow-up topics. The remaining challenges are in
+the appendix for participants who want to continue learning after the session.
 
 ---
 
@@ -162,6 +159,33 @@ A dbt test passes when its SELECT returns zero rows. The puzzle below asks how m
 
 ---
 
+## Follow-up Topics
+
+### Challenge 402 — The Macro Workshop
+
+This topic is introduced briefly during the session. It covers reusable Jinja
+macros, package macro overrides, `dispatch`, surrogate keys, MD5 hashing, and
+using CTEs to make renamed columns available to later expressions.
+
+The detailed exercise can be provided as follow-up material when you are ready
+to implement these patterns.
+
+### Challenge 501 — Materializations & Ghost Objects
+
+This topic is introduced briefly during the session. It covers view, table,
+and ephemeral materializations, as well as database objects that remain after
+a model's materialization changes.
+
+The detailed exercise can be provided as follow-up material when you are ready
+to explore these behaviors.
+
+---
+
+## Appendix — Continue Learning
+
+The following challenges are optional follow-up exercises for participants who
+want to continue beyond the three-hour session.
+
 ## Planet 4 — Documentum (Communicate & DRY)
 
 > Code that nobody can read is code that nobody trusts. Two skills:
@@ -187,57 +211,11 @@ Docs: <https://docs.getdbt.com/reference/resource-properties/description>
 
 ---
 
-### Challenge 402 — The Macro Workshop
-
-`hard · 60 points`
-
-You've already written `amount / 100.0` once. If you write it again somewhere else, you've started repeating yourself — and the day someone changes the convention you'll be hunting every instance. Extract it into a macro.
-
-Build two macros. The first wraps cents-to-dollars conversion: takes a column name and returns the SQL fragment `ROUND(CAST(<col> AS DECIMAL) / 100.0, 2)` (rounded to two decimal places — same precision as Challenge 103, so the downstream answers don't drift). Use it in `stg_payments` to replace the inline calculation.
-
-The second is a surrogate-key generator that MD5-hashes a list of fields. Specifications you need to follow exactly so the hash is deterministic:
-
-> - **Fields, in order:** `[order_id, payment_id]`
-> - **Cast each field:** `CAST(<field> AS VARCHAR)` BEFORE the COALESCE. `order_id` is an INTEGER — COALESCE can't mix an integer with the `'_null_'` string sentinel, so the cast has to happen first or you'll hit a type-mismatch error.
-> - **Separator:** the literal pipe character `'|'`
-> - **NULL sentinel:** COALESCE NULL → the literal string `'_null_'` (so `(NULL,'x')` doesn't collide with `(NULL,NULL)`)
-> - **Output:** MD5 of the joined string, lowercase hex
-
-Give the macro the exact same name as the surrogate-key macro in `dbt_utils` (`generate_surrogate_key`). Add a `payment_key` column to `stg_payments` by calling it UNQUALIFIED — i.e. `{{ generate_surrogate_key(['order_id', 'payment_id']) }}` — and observe which implementation wins. (Two name-resolution rules to understand: unqualified macro calls resolve to your project's macros first; the separate `dispatch` config is what would force calls written as `dbt_utils.generate_surrogate_key(...)` through your override too. The puzzle only requires the unqualified path — try dispatch as a bonus.)
-
-There's a SQL scoping gotcha: the column you hash on is a SELECT alias of a source column. Most engines can't reference a SELECT alias from another expression in the same SELECT — structure with a CTE so the rename is in scope before the macro call.
-
-**Business question:** what are the first 8 characters of the `payment_key` for `payment_id = 1`?
-
-Docs: <https://docs.getdbt.com/docs/build/jinja-macros>
-
-#### Bonus — dispatch
-
-Try `{{ dbt_utils.generate_surrogate_key(['order_id', 'payment_id']) }}` explicitly — different hash (different separator). To force *all* references to `dbt_utils.generate_surrogate_key` (including from other packages) to use your override too, configure `dispatch:` in `dbt_project.yml` with `search_order: ["dbt_escape_room", "dbt_utils"]`. Flip the order, re-run, observe the hash change. This is exactly how teams swap in a project-wide hash function (e.g., SHA256 for compliance).
-
----
-
 ## Planet 5 — Materia (Shaping Reality)
 
 > Every model becomes a database object — until it doesn't. Choose the
 > materialization wisely, and learn what dbt does NOT clean up when you
 > change your mind. Then bend the schema namespace to your will.
-
-### Challenge 501 — Materializations & Ghost Objects
-
-`medium · 30 points`
-
-Not every model should be a database table. Views save space but cost query time. Ephemeral models exist only as CTEs inlined into downstream queries. Tables cost storage but speed up reads. The right choice depends on the model's place in the pipeline.
-
-Reconfigure the project so staging models stay as views, intermediate models become ephemeral, and marts (which you'll start building in a later planet) materialize as tables. Then rebuild and look closely at what objects actually exist in the database.
-
-There's a gotcha here that catches every dbt newcomer once. Find it — and DO NOT clean it up yet; the puzzle answer depends on observing the world as dbt left it.
-
-**Business question:** immediately after your reconfigure-and-rebuild (no manual cleanup), how many views exist in the main schema?
-
-Docs: <https://docs.getdbt.com/docs/build/materializations>
-
----
 
 ### Challenge 502 — Schema Mastery
 
@@ -369,7 +347,7 @@ Add not-null tests on the channel name and session count.
 
 ---
 
-## Mission summary
+## Challenge summary
 
 | ID  | Title                       | Planet         | Difficulty | Points |
 |-----|-----------------------------|----------------|------------|--------|
@@ -391,6 +369,3 @@ Add not-null tests on the channel name and session count.
 | 702 | RFM Segments                | Marsius        | expert     | 90     |
 | 703 | The Marketing Funnel        | Marsius        | expert     | 90     |
 
-**Total: 775 credits across 17 challenges.**
-
-Good luck, contestant. Use `scan` when you're stuck; use `skip` if you need to come back later; use `quit` and your progress is saved.
