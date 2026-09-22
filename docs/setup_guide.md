@@ -67,11 +67,31 @@ uv run dbt deps
 
 ### Step 4 — Authenticate to Azure
 
+First confirm Azure CLI is actually installed and on `PATH`:
+
+```powershell
+az --version
+```
+
+If this errors with `az: command not found` (or similar), reinstall it from
+the link in the Prerequisites table above and open a new terminal — `az` is
+a system tool, not something `uv sync` installs into the project venv.
+
+Then log in:
+
 ```powershell
 az login
 ```
 
-A browser window opens — sign in with your company account.
+A browser window opens — sign in with your company account. Once it
+finishes, confirm the session is valid:
+
+```powershell
+az account show
+```
+
+This should print your account name and tenant. If it errors instead, the
+login didn't complete — run `az login` again.
 
 ### Step 5 — Set environment variables
 
@@ -112,6 +132,8 @@ uv run dbt build
 |---------|-----|
 | `Env var required but not provided: 'FABRIC_SERVER'` | Set `$env:FABRIC_SERVER`, `$env:FABRIC_DATABASE`, and `$env:DBT_PROFILES_DIR` in the current PowerShell session (see Step 5) |
 | `Login timeout expired` | Run `az login` again — your token expired |
+| `az: command not found` | Azure CLI isn't installed or isn't on `PATH`. Reinstall it and open a new terminal — it's a system tool, `uv sync` won't install it |
+| `az account show` errors after `az login` | The login didn't complete (browser closed early, wrong tenant, etc.) — run `az login` again |
 | `ODBC Driver 18 for SQL Server not found` | Install the ODBC driver from the link above, restart terminal |
 | `uv: command not found` | Close and reopen PowerShell after installing uv |
 | `dbt: command not found` | Use `uv run dbt` instead of plain `dbt` |

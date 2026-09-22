@@ -36,16 +36,23 @@ you open a new terminal.
 
 ### Step 3 — Verify dbt can connect to Fabric
 
-Make sure you have azure-cli installed, to log into fabric
-
+Check that Azure CLI is installed (it's a system tool, not a `uv`-managed
+package — see [Requirements](#requirements)):
 
 ```powershell
-pip install azure-cli
+az --version
 ```
 
+If that fails, install it with `winget install --exact --id Microsoft.AzureCLI`
+— any terminal works, including VS Code's integrated one. Then close and
+reopen that terminal (its `PATH` won't include `az` until you do) and re-run
+`az --version` to confirm.
+
+Log in and confirm the session is valid:
 
 ```powershell
 az login
+az account show     # should print your account/tenant, not an error
 uv run dbt debug
 ```
 
