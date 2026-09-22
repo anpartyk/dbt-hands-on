@@ -36,6 +36,14 @@ you open a new terminal.
 
 ### Step 3 — Verify dbt can connect to Fabric
 
+Make sure you have azure-cli installed, to log into fabric
+
+
+```powershell
+pip install azure-cli
+```
+
+
 ```powershell
 az login
 uv run dbt debug
