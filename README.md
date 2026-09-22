@@ -15,6 +15,7 @@ Each "room" is a small dbt task plus a SQL puzzle whose answer unlocks the next 
 ### Step 1 — Install Python dependencies and dbt packages
 
 ```powershell
+pip install uv
 uv sync --all-groups
 uv run dbt deps
 ```
@@ -25,7 +26,7 @@ Set these in the current PowerShell session (replace the Fabric placeholders
 with your Warehouse SQL endpoint and database name if different):
 
 ```powershell
-$env:DBT_PROFILES_DIR = "C:/Git/dbt-hands-on"
+$env:DBT_PROFILES_DIR = "path to your training repo"
 $env:FABRIC_SERVER = "shared on the traninig"
 $env:FABRIC_DATABASE = "WH_Training"
 ```
@@ -36,6 +37,7 @@ you open a new terminal.
 ### Step 3 — Verify dbt can connect to Fabric
 
 ```powershell
+az login
 uv run dbt debug
 ```
 

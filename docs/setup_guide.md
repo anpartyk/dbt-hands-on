@@ -53,6 +53,7 @@ cd dbt-hands-on
 ### Step 2 — Install Python dependencies
 
 ```powershell
+pip install uv
 uv sync --all-groups
 ```
 

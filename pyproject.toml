@@ -8,6 +8,8 @@ authors = [
 requires-python = ">=3.11"
 
 dependencies = [
+    "azure-cli>=2.0.0",
+    "setuptools<81",
     "dbt-core~=1.11.0",
     "dbt-fabric>=1.8.0",
 ]
